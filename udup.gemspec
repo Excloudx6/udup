@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'udup'
-  spec.version       = '0.1.2'
+  spec.version       = '0.1.5'
   spec.authors       = ['Joshua MARTINELLE']
   spec.email         = ['contact@jomar.fr']
   spec.summary       = 'URL Deduplication'

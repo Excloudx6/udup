@@ -8,7 +8,7 @@ class Udup
     @valid_urls = {}
     @skip_exts = options[:skip_exts] || %w[.css .png .jpg .jpeg .svg .ico .webp .ttf .otf .woff .woff2 .gif .pdf .bmp
                                            .eot .mp3 .mp4 .avi]
-    @content_to_skip = options[:content_to_skip] || %w[blog docs post support]
+    @content_to_skip = %r{blog|docs|post|support|pages?/\d+|articles?/\d+|share\/\w{15,}|\d{2,}}i
     @bad_char_path = options[:bad_char_path] || %w[+ ' " ( ) \\ <]
   end
 
@@ -73,6 +73,6 @@ class Udup
   end
 
   def content_to_skip?(path)
-    @content_to_skip.any? { |content| path.include?(content) }
+    path.match?(@content_to_skip)
   end
 end
